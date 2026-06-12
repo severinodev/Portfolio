@@ -1,0 +1,129 @@
+---
+
+const { projectTitle, projectDescription, projectLink, githubLink, images } = Astro.props;
+import ArrowLink from "@assets/icons/arrow-link.astro";
+import Github from "@assets/icons/github.astro";
+
+
+const modalId = `modal-${projectTitle.replace(/\s+/g, '-').toLowerCase()}`;
+---
+
+<article style={{
+  backgroundImage: 'radial-gradient(circle, #6c6c6c1d 0%, transparent 100%)'
+}} class="border border-zinc-700 bg-zinc-900 bg-opacity-40 p-8 rounded-lg flex flex-col-reverse md:flex-row justify-between mb-7 shadow-xl">
+  <div>
+    <div class="flex items-center gap-3 mb-2">
+      <a class="text-xl inline-flex items-center gap-2 hover:opacity-60 transition" target="_blank" href={projectLink}>
+        <h3 class="text-xl font-semibold inline-block">{projectTitle}</h3>
+        <span class="text-zinc-400">
+          <ArrowLink size="w-5 h-5" />
+        </span>
+      </a>
+
+      {githubLink && (
+        <a href={githubLink} target="_blank" aria-label="GitHub" class="hover:opacity-60 transition">
+          <Github class="w-5 h-5 text-white" />
+        </a>
+      )}
+    </div>
+
+    <p class="text-zinc-400 text-sm text-pretty pr-2 mb-4">{projectDescription}</p>
+
+    <div class="flex items-center gap-3">
+      <slot/>
+    </div>
+  </div>
+
+ <div 
+  class="w-full md:w-52 flex-shrink-0 cursor-pointer group relative self-center" 
+  onclick={`document.getElementById('${modalId}').showModal()`}
+>
+  <img 
+    class="w-full h-auto shadow-xl rounded-lg aspect-video object-cover transition duration-300 group-hover:scale-[1.02]" 
+    src={images && images.length > 0 ? images[0] : '/favicon.svg'} 
+    alt={`${projectTitle} image`} 
+  />
+  
+  <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 rounded-lg">
+    <span class="text-white text-xs font-bold tracking-widest border border-white/40 px-3 py-2 rounded uppercase">
+      Ver Galería
+    </span>
+  </div>
+</div>
+</article>
+
+<dialog id={modalId} class="bg-transparent backdrop:backdrop-blur-md p-0 overflow-visible">
+  <div class="relative max-w-5xl w-full flex flex-col items-center">
+    <button 
+      onclick={`document.getElementById('${modalId}').close()`}
+      class="absolute -top-12 right-0 md:-right-10 text-white/70 hover:text-white transition-all text-3xl z-50"
+    >
+      &times;
+    </button>
+
+    <div class="relative w-[95vw] max-w-4xl aspect-video flex items-center justify-center overflow-hidden">
+      {images.map((img, index) => (
+        <div class={`slide-${modalId} ${index === 0 ? 'block' : 'hidden'} w-full h-full`}>
+          <img 
+            src={img} 
+            alt={`${projectTitle} screenshot ${index + 1}`} 
+            class="w-full h-full object-contain" 
+          />
+        </div>
+      ))}
+
+      {images.length > 1 && (
+        <div class="absolute inset-0 flex items-center justify-between px-2 pointer-events-none">
+          <button 
+            class="pointer-events-auto bg-black/20 hover:bg-purple-600/80 p-3 rounded-full text-white transition-all backdrop-blur-sm shadow-lg" 
+            onclick={`changeSlide('${modalId}', -1)`}
+            aria-label="Anterior"
+          >
+            ❮
+          </button>
+          <button 
+            class="pointer-events-auto bg-black/20 hover:bg-purple-600/80 p-3 rounded-full text-white transition-all backdrop-blur-sm shadow-lg" 
+            onclick={`changeSlide('${modalId}', 1)`}
+            aria-label="Siguiente"
+          >
+            ❯
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+</dialog>
+
+<style>
+
+  dialog:focus {
+    outline: none;
+  }
+ 
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+  }
+</style>
+<script is:inline>
+  if (typeof window.indices === 'undefined') window.indices = {};
+  
+  window.changeSlide = (modalId, n) => {
+    const slides = document.querySelectorAll(`.slide-${modalId}`);
+    if (!window.indices[modalId]) window.indices[modalId] = 0;
+    
+    slides[window.indices[modalId]].classList.add('hidden');
+    window.indices[modalId] = (window.indices[modalId] + n + slides.length) % slides.length;
+    slides[window.indices[modalId]].classList.remove('hidden');
+  }
+</script>
+
+<style>
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  dialog[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

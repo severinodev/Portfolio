@@ -1,0 +1,54 @@
+---
+import ProjectCard from '@components/ProjectCard.astro'
+import Css from "@assets/icons/css.astro";
+import Javascript from "@assets/icons/javascript.astro";
+import Html from "@assets/icons/html.astro";
+import Node from "@assets/icons/node.astro";
+import Mysql from "@assets/icons/mysql.astro";
+import Postgresql from "@assets/icons/postgresql.astro";
+import Git from "@assets/icons/git.astro";
+import Github from "@assets/icons/github.astro";
+import Docker from "@assets/icons/docker.astro";
+import Postman from "@assets/icons/postman.astro";
+import Mongo from "@assets/icons/mongo.astro";
+import Typescript from "@assets/icons/typescript.astro";
+import Angular from "@assets/icons/angular.astro";
+import Dotnet from "@assets/icons/dotnet.astro";
+import Redis from "@assets/icons/redis.astro";
+import Actions from "@assets/icons/actions.astro";
+import Flutter from '@assets/icons/flutter.astro';
+import Oracle from '@assets/icons/oracle.astro';
+---
+
+<section class="my-20">
+
+  <h2 class="text-2xl font-semibold mb-2">Proyectos</h2>
+  <hr class="mb-6 border-zinc-600">
+
+
+  <ProjectCard 
+    projectTitle="Mugiwara Identifier" 
+    projectDescription="Aplicación web interactiva inspirada en el universo de One Piece orientada a la clasificación y análisis de perfiles de usuario. El proyecto destaca por implementar una lógica de evaluación dinámica en el frontend, procesando las entradas del usuario en tiempo real para determinar su afinidad con los personajes de la tripulación. Desarrollada con un enfoque de alto rendimiento, interfaz intuitiva y desplegada de forma automatizada mediante flujos modernos de integración en Vercel."
+    projectLink="https://mugiwara-identifier.vercel.app/" githubLink="https://github.com/eliascvrno/Mugiwara-Identifier" 
+    images={[
+      "/images/mugi1.PNG",
+      "/images/mugi2.PNG",
+      "/images/mugi3.PNG",
+      "/images/mugi4.PNG"
+    ]}>
+      <Html />
+      <Javascript />
+      <Css />
+  </ProjectCard>
+
+  <ProjectCard 
+    projectTitle="Talk to Messi" 
+    projectDescription="Aplicación móvil interactiva desarrollada con Flutter y Dart que simula un chat dinámico con Lionel Messi. El proyecto destaca por su excelente calidad de código al implementar Arquitectura Limpia (Clean Architecture), dividiendo rigurosamente el software en capas independientes (presentación, dominio, infraestructura y configuración). Cuenta con un consumo asíncrono de APIs REST mediante el cliente Dio, gestión eficiente del estado conversacional con Provider y un diseño de interfaz moderno (UX/UI) optimizado para dispositivos móviles."
+    githubLink="https://github.com/eliascvrno/Talk-To-Messi-Flutter" 
+    projectLink="https://talk-to-messi.vercel.app/"
+    images={["/images/messi.PNG", "/images/messi2.PNG"]}
+  >
+    <Postman className="w-8 h-8"/>
+    <Flutter className="w-8 h-8"/>
+  </ProjectCard>
+</section>
