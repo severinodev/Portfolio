@@ -1,20 +1,15 @@
 ---
 import IconContainer from "@components/IconContainer.astro";
-import Css from "@assets/icons/css.astro";
-import Javascript from "@assets/icons/javascript.astro";
-import Html from "@assets/icons/html.astro";
 import Node from "@assets/icons/node.astro";
 import Flutter from "@assets/icons/flutter.astro";
-import Oracle from "@assets/icons/oracle.astro";
 import Git from "@assets/icons/git.astro";
 import Docker from "@assets/icons/docker.astro";
 import Postman from "@assets/icons/postman.astro";
-import Mongo from "@assets/icons/mongo.astro";
 import Typescript from "@assets/icons/typescript.astro";
 import Angular from "@assets/icons/angular.astro";
 import Dotnet from "@assets/icons/dotnet.astro";
-import Redis from "@assets/icons/redis.astro";
-import Actions from "@assets/icons/actions.astro";
+import React from "@assets/icons/react.astro";
+import Postgresql from "@assets/icons/postgresql.astro";
 ---
 
 <section class="my-20">
@@ -22,7 +17,7 @@ import Actions from "@assets/icons/actions.astro";
     <span class="lang-es">Tecnologías y herramientas</span>
     <span class="lang-en">Technologies and Tools</span>
   </h2>
-  <hr class="mb-6 border-zinc-600">
+  <hr class="mb-6 border-zinc-600" />
 
   <h3 class="text-xl font-medium mb-4">Frontend</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 20px;">
@@ -34,6 +29,9 @@ import Actions from "@assets/icons/actions.astro";
     </IconContainer>
     <IconContainer name="Angular">
       <Angular size="size-9" />
+    </IconContainer>
+    <IconContainer name="React">
+      <React size="size-9" />
     </IconContainer>
   </div>
 
@@ -48,19 +46,13 @@ import Actions from "@assets/icons/actions.astro";
     <IconContainer name="Node.js">
       <Node size="size-9" />
     </IconContainer>
-    <IconContainer name="MongoDB">
-      <Mongo size="size-9" />
-    </IconContainer>
-    <IconContainer name="Oracle">
-      <Oracle size="size-9" />
-    </IconContainer>
-    <IconContainer name="Redis">
-      <Redis size="size-9" />
+    <IconContainer name="Postgresql">
+      <Postgresql size="size-9" />
     </IconContainer>
   </div>
 
   <h3 class="text-xl font-medium mt-6 mb-4">
-    <span class="lang-es">Herramientas & CI/CD</span>
+    <span class="lang-es">Herramientas</span>
     <span class="lang-en">Tools & CI/CD</span>
   </h3>
   <div style="display: flex; flex-wrap: wrap; gap: 20px;">
@@ -73,6 +65,5 @@ import Actions from "@assets/icons/actions.astro";
     <IconContainer name="Docker">
       <Docker size="size-9" />
     </IconContainer>
-    <IconContainer name="Actions">
-      <Actions size="size-9" />
-    </IconContainer>
+  </div>
+</section>

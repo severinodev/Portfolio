@@ -1,23 +1,16 @@
 ---
 import ProjectCard from "@components/ProjectCard.astro";
-import Css from "@assets/icons/css.astro";
-import Javascript from "@assets/icons/javascript.astro";
-import Html from "@assets/icons/html.astro";
 import Node from "@assets/icons/node.astro";
-import Mysql from "@assets/icons/mysql.astro";
 import Postgresql from "@assets/icons/postgresql.astro";
 import Git from "@assets/icons/git.astro";
 import Github from "@assets/icons/github.astro";
 import Docker from "@assets/icons/docker.astro";
 import Postman from "@assets/icons/postman.astro";
-import Mongo from "@assets/icons/mongo.astro";
 import Typescript from "@assets/icons/typescript.astro";
 import Angular from "@assets/icons/angular.astro";
 import Dotnet from "@assets/icons/dotnet.astro";
-import Redis from "@assets/icons/redis.astro";
-import Actions from "@assets/icons/actions.astro";
 import Flutter from "@assets/icons/flutter.astro";
-import Oracle from "@assets/icons/oracle.astro";
+import React from "@assets/icons/react.astro";
 ---
 
 <section class="my-20">
@@ -28,8 +21,27 @@ import Oracle from "@assets/icons/oracle.astro";
   <hr class="mb-6 border-zinc-600" />
 
   <ProjectCard
+    projectTitle="SGDUF"
+    projectDescription="<span class='lang-es'>SGDUF es un completo sistema web diseñado para la administración integral de farmacias, enfocado en optimizar la gestión operativa, comercial y de inventarios en tiempo real.</span><span class='lang-en'>SGDUF is a complete web system designed for the comprehensive management of pharmacies, focused on optimizing operational, commercial, and inventory management in real time</span>"
+    projectLink="https://sgduf.vercel.app/"
+    githubLink="https://github.com/eliascvrno/SGDUF"
+    images={[
+      "/images/sgduf.PNG",
+      "/images/sgduf1.PNG",
+      "/images/sgduf2.PNG",
+      "/images/sgduf3.PNG",
+      "/images/sgduf4.PNG",
+    ]}
+  >
+    <Postgresql />
+    <Docker />
+    <Node />
+    <React />
+  </ProjectCard>
+
+  <ProjectCard
     projectTitle="Trackly"
-    projectDescription="<span class='lang-es'>Trackly es una aplicación web moderna y robusta diseñada para el control, registro y administración de ingresos y gastos personales. Desarrollada bajo la arquitectura MVC (Model-View-Controller) con tecnologías de Microsoft, la plataforma ofrece una interfaz de usuario premium y fluida que transforma la gestión financiera en una experiencia intuitiva y visualmente atractiva.</span><span class='lang-en'>Trackly is a modern and robust web application designed for the control, registration, and management of personal income and expenses. Developed under the MVC (Model-View-Controller) architecture with Microsoft technologies, the platform offers a premium and fluid user interface that transforms financial management into an intuitive and visually appealing experience.</span>"
+    projectDescription="<span class='lang-es'>Trackly es una aplicación web moderna y robusta diseñada para el control, registro y administración de ingresos y gastos personales. Desarrollada bajo la arquitectura MVC (Model-View-Controller) con tecnologías de Microsoft.</span><span class='lang-en'>Trackly is a modern and robust web application designed for the control, registration, and management of personal income and expenses. Developed under the MVC (Model-View-Controller) architecture with Microsoft technologies</span>"
     projectLink="https://trackly-allb.onrender.com/"
     githubLink="https://github.com/eliascvrno/Trackly"
     images={[
@@ -39,37 +51,20 @@ import Oracle from "@assets/icons/oracle.astro";
       "/images/Trackly2.PNG",
     ]}
   >
-    <Javascript />
-    <Css />
     <Postgresql />
     <Docker />
     <Dotnet />
-  </ProjectCard>
-
-  <ProjectCard
-    projectTitle="Mugiwara Identifier"
-    projectDescription="<span class='lang-es'>Aplicación web interactiva inspirada en el universo de One Piece orientada a la clasificación y análisis de perfiles de usuario. El proyecto destaca por implementar una lógica de evaluación dinámica en el frontend, procesando las entradas del usuario en tiempo real para determinar su afinidad con los personajes de la tripulación. Desarrollada con un enfoque de alto rendimiento, interfaz intuitiva y desplegada de forma automatizada mediante flujos modernos de integración en Vercel.</span><span class='lang-en'>Interactive web application inspired by the One Piece universe aimed at the classification and analysis of user profiles. The project stands out for implementing dynamic evaluation logic on the frontend, processing user inputs in real time to determine their affinity with the crew characters. Developed with a high-performance focus, intuitive interface, and deployed automatically through modern integration flows on Vercel.</span>"
-    projectLink="https://mugiwara-identifier.vercel.app/"
-    githubLink="https://github.com/eliascvrno/Mugiwara-Identifier"
-    images={[
-      "/images/mugi1.PNG",
-      "/images/mugi2.PNG",
-      "/images/mugi3.PNG",
-      "/images/mugi4.PNG",
-    ]}
-  >
-    <Html />
-    <Javascript />
-    <Css />
+    <Angular />
   </ProjectCard>
 
   <ProjectCard
     projectTitle="Talk to Messi"
-    projectDescription="<span class='lang-es'>Aplicación móvil interactiva desarrollada con Flutter y Dart que simula un chat dinámico con Lionel Messi. El proyecto destaca por su excelente calidad de código al implementar Arquitectura Limpia (Clean Architecture), dividiendo rigurosamente el software en capas independientes (presentación, dominio, infraestructura y configuración). Cuenta con un consumo asíncrono de APIs REST mediante el cliente Dio, gestión eficiente del estado conversacional con Provider y un diseño de interfaz moderno (UX/UI) optimizado para dispositivos móviles.</span><span class='lang-en'>Interactive mobile application developed with Flutter and Dart that simulates a dynamic chat with Lionel Messi. The project stands out for its excellent code quality by implementing Clean Architecture, strictly dividing the software into independent layers (presentation, domain, infrastructure, and configuration). It features asynchronous REST API consumption using the Dio client, efficient conversational state management with Provider, and a modern interface design (UX/UI) optimized for mobile devices.</span>"
+    projectDescription="<span class='lang-es'>Aplicación móvil interactiva desarrollada con Flutter y Dart que simula un chat dinámico con Lionel Messi. El proyecto destaca por su excelente calidad de código al implementar Arquitectura Limpia, dividiendo rigurosamente el software en capas independientes. Cuenta con un consumo asíncrono de APIs REST mediante el cliente Dio, gestión eficiente del estado conversacional con Provider</span><span class='lang-en'>Interactive mobile application developed with Flutter and Dart that simulates a dynamic chat with Lionel Messi. The project stands out for its excellent code quality by implementing Clean Architecture, strictly dividing the software into independent layers. It features asynchronous REST API consumption using the Dio client, efficient conversational state management with Provider</span>"
     githubLink="https://github.com/eliascvrno/Talk-To-Messi-Flutter"
     projectLink="https://talk-to-messi.vercel.app/"
     images={["/images/messi.PNG", "/images/messi2.PNG"]}
   >
+    <Git />
     <Postman />
     <Flutter />
     <Typescript />
