@@ -1,11 +1,17 @@
 ---
 
-const { projectTitle, projectDescription, projectLink, githubLink, images } = Astro.props;
+const { projectTitle, projectDescription, projectLink, githubLink, images } = Astro.props as {
+  projectTitle: string;
+  projectDescription: string;
+  projectLink: string;
+  githubLink?: string;
+  images: string[];
+};
 import ArrowLink from "@assets/icons/arrow-link.astro";
 import Github from "@assets/icons/github.astro";
 
-
 const modalId = `modal-${projectTitle.replace(/\s+/g, '-').toLowerCase()}`;
+const fallbackImage = "/images/og-image.jpg";
 ---
 
 <article style={{
@@ -42,6 +48,7 @@ const modalId = `modal-${projectTitle.replace(/\s+/g, '-').toLowerCase()}`;
     class="w-full h-auto shadow-xl rounded-lg aspect-video object-cover transition duration-300 group-hover:scale-[1.02]" 
     src={images && images.length > 0 ? images[0] : '/favicon.svg'} 
     alt={`${projectTitle} image`} 
+    onerror={`this.onerror=null; this.src='${fallbackImage}';`}
   />
   
   <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 rounded-lg">
@@ -63,12 +70,13 @@ const modalId = `modal-${projectTitle.replace(/\s+/g, '-').toLowerCase()}`;
     </button>
 
     <div class="relative w-[95vw] max-w-4xl aspect-video flex items-center justify-center overflow-hidden">
-      {images.map((img, index) => (
+      {images.map((img: string, index: number) => (
         <div class={`slide-${modalId} ${index === 0 ? 'block' : 'hidden'} w-full h-full`}>
           <img 
             src={img} 
             alt={`${projectTitle} screenshot ${index + 1}`} 
             class="w-full h-full object-contain" 
+            onerror={`this.onerror=null; this.src='${fallbackImage}';`}
           />
         </div>
       ))}
