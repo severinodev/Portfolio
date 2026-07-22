@@ -12,7 +12,7 @@ src/
 ## **Local configuration** 
 1. Clone the repo:  
 ```
-git clone https://github.com/garaven/portfolio
+git clone https://github.com/severinodev/Portfolio
 ```
 2. Install dependencies:
 ```  
